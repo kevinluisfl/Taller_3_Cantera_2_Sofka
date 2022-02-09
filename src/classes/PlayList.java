@@ -1,33 +1,32 @@
-package com.company;
+package classes;
 
 import java.util.ArrayList;
 
 
-public class PlayList extends Song {
-    public static ArrayList<PlayList> list = new ArrayList<>();
+public class PlayList {
     private String namePlayList;
-
-
-    public PlayList(String title) {
-        super(title);
+    public ArrayList<Song> songs = new ArrayList<>();
+ 
+    public PlayList(String namePlayList) {
+        this.namePlayList = namePlayList;
     }
 
-    public static ArrayList<PlayList> getList() {
-        return list;
+    public String getNamePlayList() {
+        return namePlayList;
     }
 
-    public static void setList(ArrayList<PlayList> list) {
-        PlayList.list = list;
+    public void setNamePlayList(String namePlayList) {
+        this.namePlayList = namePlayList;
     }
 
-    public static PlayList createPlayList(String title) {
-        PlayList playList = new PlayList(title);
-        list.add(playList);
-
-        for (int i = 0; i < list.size(); i ++) {
-            System.out.println("Titulo: " + list.get(i).getTitle());
-        }
-        return playList;
+    public ArrayList<Song> getPlaylist() {
+        return songs;
     }
 
+    public void setPlaylist(ArrayList<Song> song) {
+        this.songs = song;
+    }
+    
+    
+    
 }
