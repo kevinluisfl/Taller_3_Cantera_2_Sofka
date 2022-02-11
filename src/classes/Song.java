@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class Song implements Comparable<Song> {
     private String title;
-    private int identifier;
+    private Integer identifier;
     private Date date;
-    private int duration;
+    private Integer duration;
     private String genre;
     private String cover;
     private String description;
