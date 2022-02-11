@@ -2,7 +2,7 @@ package classes;
 
 import java.util.Date;
 
-public class Song {
+public class Song implements Comparable<Song> {
     private String title;
     private int identifier;
     private Date date;
@@ -87,5 +87,20 @@ public class Song {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Titulo='" + title + '\'' +
+                ", Identificador=" + identifier +
+                ", Fecha=" + date +
+                ", Duración=" + duration +
+                ", Genero='" + genre + '\'' +
+                ", Caratula='" + cover + '\'' +
+                ", Descripción='" + description;
+    }
+
+    @Override
+    public int compareTo(Song o) {
+        return date.compareTo(o.getDate());
+    }
 }
