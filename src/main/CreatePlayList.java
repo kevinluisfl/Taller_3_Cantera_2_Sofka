@@ -107,9 +107,22 @@ public class CreatePlayList {
 
                     case 3:
                         System.out.println(library);
-                        JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
+                        int selection2 = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
                                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                                new Object[]{"Ordenar por fecha", "Ordenar por duración", "Resetear", "Cerrar"}, "opcion 1");
+                                new Object[]{"Ordenar por fecha", "Ordenar por duración", "Resetear", "Atras"}, "opcion 1");
+
+                        switch (selection2 + 1) {
+                            case 1:
+                                System.out.println("Orden por fecha");
+                                Collections.sort(library);
+                                for(Song element: library) {
+                                    System.out.println(element);
+                                }
+                                break;
+
+                            case 2:
+                                System.out.println("Orden por duración");
+                        }
 
                         break;
 
