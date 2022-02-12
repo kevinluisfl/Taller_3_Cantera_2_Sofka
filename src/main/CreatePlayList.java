@@ -1,6 +1,7 @@
 
 package main;
 
+import classes.Filter;
 import classes.Operations;
 import classes.PlayList;
 import classes.Song;
@@ -118,28 +119,76 @@ public class CreatePlayList {
                         System.out.println(library);
                         int selection2 = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
                                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                                new Object[]{"Ordenar por fecha", "Ordenar por duración", "Resetear", "Atras"}, "opcion 1");
+                                new Object[]{"Ordenar", "Filtrar", "Resetear", "Atras"}, "opcion 1");
                         
                         Operations op = new Operations();
                         ArrayList<Song> libraryOrder = new ArrayList<>();
                         
                         switch (selection2 + 1) {
                             case 1:
-                                libraryOrder = op.ordersong(library, "fecha");
-                                System.out.println("Libreria ordenada por fecha al parecer:\n");
-                                for(Song element: libraryOrder) {
-                                    System.out.println(element);
+
+                                int selection3 = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
+                                        JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                                        new Object[]{"Ordenar por fecha", "Ordenar por duración", "Inicio"}, "opcion 1");
+
+                                switch (selection3 + 1) {
+                                    case 1:
+                                    libraryOrder = op.ordersong(library, "fecha");
+                                    System.out.println("Libreria ordenada por fecha al parecer:\n");
+                                    for (Song element : libraryOrder) {
+                                        System.out.println(element);
+                                    }
+                                    break;
+
+                                    case 2:
+                                        libraryOrder = op.ordersong(library, "duracion");
+                                        System.out.println("Libreria ordenada por duracion al parecer:\n");
+                                        for(Song element: libraryOrder) {
+                                            System.out.println(element);
+                                        }
+                                        break;
                                 }
                             break;
 
                             case 2:
-                                libraryOrder = op.ordersong(library, "duracion");
-                                System.out.println("Libreria ordenada por duracion al parecer:\n");
-                                for(Song element: libraryOrder) {
-                                    System.out.println(element);
+
+                                int selection4 = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
+                                        JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                                        new Object[]{"Filtrar por año", "Filtrar por genero", "Inicio"}, "opcion 1");
+
+                                Filter filter = new Filter();
+                                ArrayList<Song> libraryFilter = new ArrayList<>();
+
+                                switch (selection4 + 1) {
+                                    case 1:
+                                        int yearFilter = Integer.parseInt(JOptionPane.showInputDialog("Escribe el año a filtrar: "));
+                                        libraryFilter = filter.FilterYear(library, yearFilter);
+
+                                        System.out.println("Libreria filtrada por año\n");
+                                        for (Song element : libraryFilter) {
+                                            System.out.println(element);
+                                        }
+                                        break;
+
+                                    case 2:
+                                        String[] optionGenreFilter = {"Rock", "Cumbia", "Pop", "Vallenato", "Regge", "Hip-Hop"};
+                                        String genreFilter = (String) JOptionPane.showInputDialog(null, "Género:",
+                                                "", JOptionPane.QUESTION_MESSAGE, null, optionGenreFilter, optionGenreFilter[0]);
+
+                                        libraryFilter = filter.FilterGenre(library, genreFilter);
+                                        System.out.println("Libreria filtrada por genero al parecer:\n");
+                                        for(Song element: libraryFilter) {
+                                            System.out.println(element);
+                                        }
+
+                                        break;
+                                    default:
+                                        System.out.println("fin1");
                                 }
                                 
                             break;
+                            default:
+                                System.out.println("Fin");
                         }
 
                     break;
