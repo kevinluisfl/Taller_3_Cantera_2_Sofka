@@ -1,8 +1,9 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.Date;
 
-public class Song implements Comparable<Song> {
+public class Song {
     private String title;
     private Integer identifier;
     private Date date;
@@ -87,6 +88,10 @@ public class Song implements Comparable<Song> {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    public long getMillis(){
+       return this.date.getTime();
+    }
 
     @Override
     public String toString() {
@@ -99,8 +104,4 @@ public class Song implements Comparable<Song> {
                 ", Descripción='" + description;
     }
 
-    @Override
-    public int compareTo(Song o) {
-        return date.compareTo(o.getDate());
-    }
 }
