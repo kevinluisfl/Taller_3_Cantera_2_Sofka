@@ -2,11 +2,10 @@
 package main;
 
 import classes.Filter;
-import classes.Operations;
+import classes.Order;
 import classes.PlayList;
 import classes.Song;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -27,36 +26,47 @@ public class CreatePlayList {
             String title, genre, cover, description, namePlayList;
             int identifier, year, month, day, duration, limit = 0;
 
-            ArrayList<Song> songs = new ArrayList<>();
-
+            /**
+             * ArrayList para guardar objetos de clases
+             */
             ArrayList<Song> library = new ArrayList<>();
-            Song s1 = new Song("cancion 1", 1, new Date(102, 3, 12), 180, "Rock", "cover1.png", "descripción 1" + "\n");
-            Song s2 = new Song("cancion 2", 2, new Date(85, 2, 21), 200, "Pop", "cover2.png", "descripción 2" + "\n");
-            Song s3 = new Song("cancion 3", 3, new Date(103, 7, 24), 150, "Vallenato", "cover3.png", "descripción 3" + "\n");
-            Song s4 = new Song("cancion 4", 4, new Date(89, 10, 10), 230, "Cumbia", "cover4.png", "descripción 4" + "\n");
-            Song s5 = new Song("cancion 5", 5, new Date(115, 6, 8), 210, "Hip-Hop", "cover5.png", "descripción 5" + "\n");
+            ArrayList<PlayList> playlists = new ArrayList<>();
+            
+            /**
+             * Canciones precargadas
+             */
+            Song s1 = new Song("Canción 1", 1, new Date(102, 3, 12), 180, "Rock", "cover1.png", "descripción 1");
+            Song s2 = new Song("Canción 2", 2, new Date(85, 2, 21), 200, "Pop", "cover2.png", "descripción 2");
+            Song s3 = new Song("Canción 3", 3, new Date(103, 7, 24), 150, "Vallenato", "cover3.png", "descripción 3");
+            Song s4 = new Song("Canción 4", 4, new Date(89, 10, 10), 230, "Cumbia", "cover4.png", "descripción 4");
+            Song s5 = new Song("Canción 5", 5, new Date(115, 6, 8), 210, "Hip-Hop", "cover5.png", "descripción 5");
             library.add(s1);
             library.add(s2);
             library.add(s3);
             library.add(s4);
             library.add(s5);
-
-
-//            library.forEach(s ->{
-//                System.out.println("Nombre: "+s.getTitle()+" -Genero: "+s.getGenre()+" -Fecha: "+s.getDate());
-//            });
+            
+            /**
+             * playlist precargada
+             */
+            PlayList pL1= new PlayList("Playlist 1");
+            PlayList pL2= new PlayList("Playlist 2");
+            PlayList pL3= new PlayList("Playlist 3");
+            playlists.add(pL1);
+            playlists.add(pL2);
+            playlists.add(pL3);
+            
 
             while (limit == 0) {
-                int selection = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Menu",
+                int selectionMenu = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Menu",
                         JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                        new Object[]{"Agregar canción", "Crear playlist", "Ver biblioteca", "Cerrar"}, "opcion 1");
+                        new Object[]{"Agregar canción", "Playlist", "Ver biblioteca", "Cerrar"}, "opcion 1");
 
-
-                switch (selection + 1) {
+                switch (selectionMenu + 1) {
                     case 1:
 
                         ////////ATRIBUTOS DE CANCION
-                        title = JOptionPane.showInputDialog("Nombre de la canción:").toUpperCase();
+                        title = JOptionPane.showInputDialog("Nombre de la canción:");
                         identifier = library.size()+1;
                         year = Integer.parseInt(JOptionPane.showInputDialog("Año canción:"));
                         month = (int) (Math.random() * 11);
@@ -64,102 +74,183 @@ public class CreatePlayList {
                         duration = Integer.parseInt(JOptionPane.showInputDialog("Duración canción en segundos:"));
                         String[] optionsGenre = {"Rock", "Cumbia", "Pop", "Vallenato", "Regge", "Hip-Hop"};
                         genre = (String) JOptionPane.showInputDialog(null, "Género:",
-                                "", JOptionPane.QUESTION_MESSAGE, null, optionsGenre, optionsGenre[0]);
+                                "Selección género", JOptionPane.QUESTION_MESSAGE, null, optionsGenre, optionsGenre[0]);
                         cover = JOptionPane.showInputDialog("Imagen (URL):");
                         description = JOptionPane.showInputDialog("Descripción:");
 
                         Song s = new Song(title, identifier, new Date(year - 1900, month - 1, day), duration, genre, cover, description);
                         library.add(s);
                         System.out.println("Canción creada exitosamente y agregada a la biblioteca!");
+                        JOptionPane.showMessageDialog(null, "Canción creada exitosamente y agregada a la biblioteca!");
                         System.out.println("" + s.getTitle() + " / " + s.getGenre());
 
                     break;
 
                     case 2:
                         /////////////PLAYLIST/////////////////
+                        int selectionPlayList = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "PlayList",
+                                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                                new Object[]{"Crear PlayList", "Ver PlayList", "Atras"}, "opcion 1");
 
-                        namePlayList = JOptionPane.showInputDialog("Nombre de la playlist:").toUpperCase();
-                        PlayList p1 = new PlayList(namePlayList);
-
-                        ////////
-                        String[] options = new String[library.size()];
-
-                        for (int i = 0; i < library.size(); i++) {
-                            options[i] = library.get(i).getIdentifier()+"-"+library.get(i).getTitle();
-                        }
-                        boolean anotherSong = true;
-                        do{
-                            String songSelect = (String) JOptionPane.showInputDialog(null, "Selecciona la canción",
-                                    namePlayList, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                            /**
-                             * Se divide el string por el identificador de cancion, se parsea a entero y se resta 1 para tener su indice
-                             */
-                            int indexSong = Integer.parseInt(songSelect.split("-")[0])-1;
-                            System.out.println("indice canción: " + indexSong);
-                            songs.add(library.get(indexSong));
+                        switch (selectionPlayList + 1) {
                             
-                            int response =  JOptionPane.showConfirmDialog(null, "Agregar otra canción a "+namePlayList+"?", namePlayList, 
-                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
-                            //yes=0, no=1
-                            if(JOptionPane.OK_OPTION !=  response){
-                                anotherSong = false;
-                            }
-                        }while(anotherSong);
-                        ///////
+                            case 1:
+                                ArrayList<Song> songs = new ArrayList<>();
+                                namePlayList = JOptionPane.showInputDialog("Nombre de la playlist:");
+                                PlayList pl = new PlayList(namePlayList);
 
-                        p1.setPlaylist(songs);
-                        System.out.println("Playlist: " + p1.getNamePlayList());
-                        System.out.println("Canciones: ");
-                        p1.getPlaylist().forEach(so -> {
-                            System.out.println("Titulo: " + so.getTitle() + " -Genero: " + so.getGenre());
-                        });
+                                String[] optionsSong = new String[library.size()];
+
+                                for (int i = 0; i < library.size(); i++) {
+                                    optionsSong[i] = (i+1)+"- "+library.get(i).getTitle();
+                                }
+                                boolean anotherSong = true;
+                                do{
+                                    String songSelect = (String) JOptionPane.showInputDialog(null, "Selecciona la canción",
+                                            namePlayList, JOptionPane.QUESTION_MESSAGE, null, optionsSong, optionsSong[0]);
+                                    /**
+                                     * Se divide el string por el identificador de cancion, se parsea a entero y se resta 1 para tener su indice
+                                     */
+                                    int indexSong = Integer.parseInt(songSelect.split("-")[0])-1;
+                                    songs.add(library.get(indexSong));
+
+                                    int response =  JOptionPane.showConfirmDialog(null, "Agregar otra canción a "+namePlayList+"?", namePlayList, 
+                                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+                                    
+                                    if(JOptionPane.OK_OPTION !=  response){
+                                        anotherSong = false;
+                                    }
+                                }while(anotherSong);
+
+                                pl.setSongs(songs);
+                                playlists.add(pl);
+                                System.out.println("Playlist: " + pl.getNamePlayList());
+                                System.out.println("Canciones: ");
+                                pl.getSongs().forEach(so -> {
+                                    System.out.println("Titulo: " + so.getTitle() + " -Genero: " + so.getGenre());
+                                });
+                            break;
+                            
+                            case 2:
+                                ///mostrar playlists y select con las playlist creadas
+                                String[] optionsPlayList = new String[library.size()];
+
+                                for (int i = 0; i < playlists.size(); i++) {
+                                    optionsPlayList[i] = (i+1)+"- "+playlists.get(i).getNamePlayList();
+                                }
+                                String playListSelect = (String) JOptionPane.showInputDialog(null, "Selecciona la PlayList",
+                                            "PlayList", JOptionPane.QUESTION_MESSAGE, null, optionsPlayList, optionsPlayList[0]);
+                                
+                                int indexPlayList = Integer.parseInt(playListSelect.split("-")[0])-1;
+                                
+                                PlayList playListSelected = playlists.get(indexPlayList);
+                                
+                                System.out.println("Playlist: " + playListSelected.getNamePlayList());
+                                System.out.println("Canciones: ");
+                                playListSelected.getSongs().forEach(so -> {
+                                    System.out.println("Titulo: " + so.getTitle() + " -Genero: " + so.getGenre());
+                                });
+                                
+                                /////////////////////////////////////////////////////////////////////
+                                
+                                int response =  JOptionPane.showConfirmDialog(null, "Agregar otra canción a "+playListSelected.getNamePlayList()+"?", playListSelected.getNamePlayList(), 
+                                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+                                if(JOptionPane.OK_OPTION ==  response){
+                                    ArrayList<Song> songsPlayList = playListSelected.getSongs();
+                                    optionsSong = new String[library.size()];
+
+                                    for (int i = 0; i < library.size(); i++) {
+                                        optionsSong[i] = (i+1)+"- "+library.get(i).getTitle();
+                                    }
+                                        anotherSong = true;
+                                    do{
+                                        String songSelect = (String) JOptionPane.showInputDialog(null, "Selecciona la canción",
+                                                playListSelected.getNamePlayList(), JOptionPane.QUESTION_MESSAGE, null, optionsSong, optionsSong[0]);
+                                        
+                                        int indexSong = Integer.parseInt(songSelect.split("-")[0])-1;
+                                        songsPlayList.add(library.get(indexSong));
+
+                                        response =  JOptionPane.showConfirmDialog(null, "Agregar otra canción a "+playListSelected.getNamePlayList()+"?", playListSelected.getNamePlayList(), 
+                                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+
+                                        if(JOptionPane.OK_OPTION !=  response){
+                                            anotherSong = false;
+                                        }
+                                    }while(anotherSong);
+                                    playListSelected.setSongs(songsPlayList);
+                                }
+                                
+                                /////////////////////////////////////////////////////////////////////
+                                
+                            break;
+                            default:
+                                System.out.println("default Fin switch playlist");
+                        }
                     break;
 
                     case 3:
                         System.out.println(library);
-                        int selection2 = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
+                        int selectionLibrary = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
                                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                                 new Object[]{"Ordenar", "Filtrar", "Resetear", "Atras"}, "opcion 1");
                         
-                        Operations op = new Operations();
+                        Order order = new Order();
                         ArrayList<Song> libraryOrder = new ArrayList<>();
                         
-                        switch (selection2 + 1) {
+                        switch (selectionLibrary + 1) {
                             case 1:
 
-                                int selection3 = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
+                                int selectionOrder = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Ordenar Biblioteca",
                                         JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                                        new Object[]{"Ordenar por fecha", "Ordenar por duración", "Inicio"}, "opcion 1");
+                                        new Object[]{"Fecha Asc", "Fecha Desc", "Duración Asc", "Duración Desc", "Inicio"}, "opcion 1");
 
-                                switch (selection3 + 1) {
+                                switch (selectionOrder + 1) {
                                     case 1:
-                                    libraryOrder = op.ordersong(library, "fecha");
-                                    System.out.println("Libreria ordenada por fecha al parecer:\n");
-                                    for (Song element : libraryOrder) {
-                                        System.out.println(element);
-                                    }
+                                        libraryOrder = order.orderSongAsc(library, "fecha");
+                                        System.out.println("Libreria ordenada por fecha ascendente:\n");
+                                        for (Song element : libraryOrder) {
+                                            System.out.println(element);
+                                        }
                                     break;
 
                                     case 2:
-                                        libraryOrder = op.ordersong(library, "duracion");
-                                        System.out.println("Libreria ordenada por duracion al parecer:\n");
+                                        libraryOrder = order.orderSongDesc(library, "fecha");
+                                        System.out.println("Libreria ordenada por fecha descendente:\n");
+                                        for (Song element : libraryOrder) {
+                                            System.out.println(element);
+                                        }
+                                    break;
+                                    
+                                    case 3:
+                                        libraryOrder = order.orderSongAsc(library, "duracion");
+                                        System.out.println("Libreria ordenada por duracion ascendente:\n");
                                         for(Song element: libraryOrder) {
                                             System.out.println(element);
                                         }
-                                        break;
+                                    break;
+
+                                    case 4:
+                                        libraryOrder = order.orderSongDesc(library, "duracion");
+                                        System.out.println("Libreria ordenada por duracion descendente:\n");
+                                        for(Song element: libraryOrder) {
+                                            System.out.println(element);
+                                        }
+                                    break;
+                                    default:
+                                        System.out.println("default Fin switch ordenar");
                                 }
                             break;
 
                             case 2:
 
-                                int selection4 = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
+                                int selectionFilter = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Filtrar Biblioteca",
                                         JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                                         new Object[]{"Filtrar por año", "Filtrar por genero", "Inicio"}, "opcion 1");
 
                                 Filter filter = new Filter();
                                 ArrayList<Song> libraryFilter = new ArrayList<>();
 
-                                switch (selection4 + 1) {
+                                switch (selectionFilter + 1) {
                                     case 1:
                                         int yearFilter = Integer.parseInt(JOptionPane.showInputDialog("Escribe el año a filtrar: "));
                                         libraryFilter = filter.FilterYear(library, yearFilter);
@@ -168,7 +259,7 @@ public class CreatePlayList {
                                         for (Song element : libraryFilter) {
                                             System.out.println(element);
                                         }
-                                        break;
+                                    break;
 
                                     case 2:
                                         String[] optionGenreFilter = {"Rock", "Cumbia", "Pop", "Vallenato", "Regge", "Hip-Hop"};
@@ -176,26 +267,32 @@ public class CreatePlayList {
                                                 "", JOptionPane.QUESTION_MESSAGE, null, optionGenreFilter, optionGenreFilter[0]);
 
                                         libraryFilter = filter.FilterGenre(library, genreFilter);
-                                        System.out.println("Libreria filtrada por genero al parecer:\n");
+                                        System.out.println("Libreria filtrada por genero:\n");
                                         for(Song element: libraryFilter) {
                                             System.out.println(element);
                                         }
 
-                                        break;
+                                    break;
                                     default:
-                                        System.out.println("fin1");
+                                        System.out.println("default Fin switch filtro");
                                 }
                                 
                             break;
+                            case 3:
+                                System.out.println("Libreria reseteada:\n");
+                                order.orderIdentifier(library);
+                                for(Song element: library) {
+                                    System.out.println(element);
+                                }
+                            break;
                             default:
-                                System.out.println("Fin");
+                                System.out.println("default Fin switch biblioteca");
                         }
-
                     break;
 
                     default:
-                    limit = 1;
-
+                        System.out.println("default Fin switch Menú");
+                        limit = 1;
                 }
             }
             }catch(Throwable exc){
