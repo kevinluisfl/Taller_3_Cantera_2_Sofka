@@ -5,29 +5,27 @@ import java.util.ArrayList;
 
 public class Filter implements IFilter {
     ArrayList<Song> libraryFilter = new ArrayList<>();
+    
+    SimpleDateFormat getYearFormat = new SimpleDateFormat("yyyy");
 
     @Override
-    public ArrayList<Song> FilterYear(ArrayList<Song> list, int y) {
+    public ArrayList<Song> FilterYear(ArrayList<Song> list, int year) {
 
-        SimpleDateFormat getYearFormat = new SimpleDateFormat("yyyy");
-
-
-        for (Song i: list) {
-            int yearSong = Integer.parseInt (getYearFormat.format(i.getDate()));
-            if (yearSong == y) {
-                libraryFilter.add(i);
+        for (Song item: list) {
+            int yearSong = Integer.parseInt (getYearFormat.format(item.getDate()));
+            if (yearSong == year) {
+                libraryFilter.add(item);
             }
         }
-
         return libraryFilter;
     }
 
     @Override
-    public ArrayList<Song> FilterGenre(ArrayList<Song> list, String g) {
+    public ArrayList<Song> FilterGenre(ArrayList<Song> list, String genre) {
 
-        for (Song i: list) {
-            if (i.getGenre() == g) {
-                libraryFilter.add(i);
+        for (Song item: list) {
+            if (item.getGenre() == genre) {
+                libraryFilter.add(item);
             }
         }
         return libraryFilter;

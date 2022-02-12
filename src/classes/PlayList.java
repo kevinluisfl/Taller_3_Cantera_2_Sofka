@@ -19,14 +19,12 @@ public class PlayList {
         this.namePlayList = namePlayList;
     }
 
-    public ArrayList<Song> getPlaylist() {
+    public ArrayList<Song> getSongs() {
         return songs;
     }
 
-    public void setPlaylist(ArrayList<Song> song) {
+    public void setSongs(ArrayList<Song> song) {
         this.songs = song;
     }
-    
-    
-    
+ 
 }

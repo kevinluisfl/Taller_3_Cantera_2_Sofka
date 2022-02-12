@@ -1,41 +1,87 @@
-/*
 
 package classes;
 
+import java.util.ArrayList;
 
-public class Order implements Comparable<Order> {
-    private String date;
-    private int duration;
+/**
+ *
+ * @author kevinf
+ */
+public class Order implements IOrder  {
+    /**
+     * creé este array para no modificar el listado original, pero igual lo modifica y no entiendo porqué
+     */
+    ArrayList<Song> libraryOrder = new ArrayList<>();
 
-    public Order(String date, Integer duration) {
-        this.date = date;
-        this.duration = duration;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
+   @Override
+    public ArrayList<Song> orderSongAsc(ArrayList<Song> list, String criterion) {
+        libraryOrder = list;
+        if(criterion.equals("duracion")){
+            System.out.println("por duracion");
+            for(int i = 0 ; i < libraryOrder.size(); i++){
+                for(int j = 0; j < libraryOrder.size(); j++){
+                    if(libraryOrder.get(i).getDuration() < libraryOrder.get(j).getDuration()){
+                        Song aux = libraryOrder.get(i);
+                        libraryOrder.set(i, libraryOrder.get(j));
+                        libraryOrder.set(j, aux);
+                    }
+                }
+            }
+        }else {
+            System.out.println("por fecha");
+            for(int i = 0 ; i < libraryOrder.size(); i++){
+                for(int j = 0; j < libraryOrder.size(); j++){
+                    if(libraryOrder.get(i).getMillis() < libraryOrder.get(j).getMillis()){
+                        Song aux = libraryOrder.get(i);
+                        libraryOrder.set(i, libraryOrder.get(j));
+                        libraryOrder.set(j, aux);
+                    }
+                }
+            }
+        }
+        return libraryOrder;
     }
 
     @Override
-    public String toString() {
-        return "Library{" + "Fecha='" + date + '\'' + ", Duracion=" + duration + '}';
+    public ArrayList<Song> orderSongDesc(ArrayList<Song> list, String criterion) {
+        libraryOrder = list;
+        if(criterion.equals("duracion")){
+            System.out.println("por duracion");
+            for(int i = 0 ; i < libraryOrder.size(); i++){
+                for(int j = 0; j < libraryOrder.size(); j++){
+                    if(libraryOrder.get(i).getDuration() > libraryOrder.get(j).getDuration()){
+                        Song aux = libraryOrder.get(i);
+                        libraryOrder.set(i, libraryOrder.get(j));
+                        libraryOrder.set(j, aux);
+                    }
+                }
+            }
+        }else {
+            System.out.println("por fecha");
+            for(int i = 0 ; i < libraryOrder.size(); i++){
+                for(int j = 0; j < libraryOrder.size(); j++){
+                    if(libraryOrder.get(i).getMillis() > libraryOrder.get(j).getMillis()){
+                        Song aux = libraryOrder.get(i);
+                        libraryOrder.set(i, libraryOrder.get(j));
+                        libraryOrder.set(j, aux);
+                    }
+                }
+            }
+        }
+        return libraryOrder;
     }
-
-    @Override
-    public int compareTo(Order o) {
-        return date.compareTo(o.getDate());
+    
+    public ArrayList<Song> orderIdentifier(ArrayList<Song> list){
+        libraryOrder = list;
+        for(int i = 0 ; i < libraryOrder.size(); i++){
+                for(int j = 0; j < libraryOrder.size(); j++){
+                    if(libraryOrder.get(i).getIdentifier() < libraryOrder.get(j).getIdentifier()){
+                        Song aux = libraryOrder.get(i);
+                        libraryOrder.set(i, libraryOrder.get(j));
+                        libraryOrder.set(j, aux);
+                    }
+                }
+            }
+        return libraryOrder;
     }
 }
-*/
