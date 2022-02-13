@@ -14,7 +14,7 @@ public class PlayList {
      * Representa los atributos.
      */
     private String namePlayList;
-    public ArrayList<Song> songs = new ArrayList<>();
+    private ArrayList<Song> songs = new ArrayList<>();
 
     /**
      * Representa el metodo PlayList.

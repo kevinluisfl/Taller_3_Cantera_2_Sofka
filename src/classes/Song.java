@@ -3,6 +3,7 @@
  */
 package classes;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -152,7 +153,7 @@ public class Song {
 
     /**
      * Representa el metodo setDescription.
-     * @param description
+     * @param description parametro tipo String
      */
     public void setDescription(String description) {
         this.description = description;
@@ -160,10 +161,20 @@ public class Song {
 
     /**
      * Representa el metodo getMillis.
-     * @return this.date.getTime
+     * @return this.date.getTime valor en milisegundos tipo long
      */
     public long getMillis(){
        return this.date.getTime();
+    }
+    
+    /**
+     * Método para formatear la fecha de la canción a un String más legible
+     * @return la fecha de canción formateada tipo String
+     */
+    public String formatDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String dateFormat = sdf.format(this.date);
+        return dateFormat;
     }
 
     /**
@@ -172,13 +183,13 @@ public class Song {
      */
     @Override
     public String toString() {
-        return "Titulo='" + title + '\'' +
-                ", Identificador=" + identifier +
-                ", Fecha=" + date +
-                ", Duración=" + duration +
-                ", Genero='" + genre + '\'' +
-                ", Caratula='" + cover + '\'' +
-                ", Descripción='" + description;
+        return "Titulo='" + getTitle() + '\'' +
+                ", Identificador=" + getIdentifier() +
+                ", Fecha=" + formatDate() +
+                ", Duración=" + getDuration() +
+                ", Genero='" + getGenre() + '\'' +
+                ", Caratula='" + getCover() + '\'' +
+                ", Descripción='" + getDescription();
     }
 
 }
