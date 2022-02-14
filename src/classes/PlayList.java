@@ -11,14 +11,14 @@ import java.util.ArrayList;
  */
 public class PlayList {
     /**
-     * Representa los atributos.
+     * Representa los atributos de la clase PlayList.
      */
     private String namePlayList;
     private ArrayList<Song> songs = new ArrayList<>();
 
     /**
      * Representa el metodo PlayList.
-     * @param namePlayList
+     * @param namePlayList de tipo String.
      */
     public PlayList(String namePlayList) {
         this.namePlayList = namePlayList;
@@ -26,7 +26,7 @@ public class PlayList {
 
     /**
      * Representa el metodo getNamePlayList.
-     * @return namePlayList.
+     * @return el nombre de la PlayList..
      */
     public String getNamePlayList() {
         return namePlayList;
@@ -34,7 +34,7 @@ public class PlayList {
 
     /**
      * Representa el metodo setNamePlayList.
-     * @param namePlayList
+     * @param namePlayList de tipo String
      */
     public void setNamePlayList(String namePlayList) {
         this.namePlayList = namePlayList;
@@ -42,7 +42,7 @@ public class PlayList {
 
     /**
      * Representa el metodo getSongs.
-     * @return songs.
+     * @return las canciones.
      */
     public ArrayList<Song> getSongs() {
         return songs;
@@ -50,7 +50,7 @@ public class PlayList {
 
     /**
      * Representa el metodo setSongs.
-     * @param song
+     * @param song de tipo ArrayList.
      */
     public void setSongs(ArrayList<Song> song) {
         this.songs = song;

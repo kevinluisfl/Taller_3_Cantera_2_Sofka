@@ -49,7 +49,7 @@ public class Song {
 
     /**
      * Representa el metodo getTitle.
-     * @return titile.
+     * @return titulo de la canción.
      */
     public String getTitle() {
         return title;
@@ -57,7 +57,7 @@ public class Song {
 
     /**
      * Representa el metodo setTitles.
-     * @param title
+     * @param title de tipo String.
      */
     public void setTitle(String title) {
         this.title = title;
@@ -65,7 +65,7 @@ public class Song {
 
     /**
      * Representa el metodo getIdentifier.
-     * @return identifier
+     * @return identificador de la canción.
      */
     public int getIdentifier() {
         return identifier;
@@ -73,7 +73,7 @@ public class Song {
 
     /**
      * Representa el metodo setIdentifier.
-     * @param identifier
+     * @param identifier de tipo int.
      */
     public void setIdentifier(int identifier) {
         this.identifier = identifier;
@@ -81,7 +81,7 @@ public class Song {
 
     /**
      * Rerpesenta el metodo getDate.
-     * @return date
+     * @return la fecha de la canción.
      */
     public Date getDate() {
         return date;
@@ -89,7 +89,7 @@ public class Song {
 
     /**
      * Representa el metodo setDate.
-     * @param date
+     * @param date de tipo Date.
      */
     public void setDate(Date date) {
         this.date = date;
@@ -97,7 +97,7 @@ public class Song {
 
     /**
      * Representa el metodo getDuration.
-     * @return duration
+     * @return duraciión de la canción.
      */
     public int getDuration() {
         return duration;
@@ -105,7 +105,7 @@ public class Song {
 
     /**
      * Representa el metodo setDuration.
-     * @param duration
+     * @param duration de tipo int.
      */
     public void setDuration(int duration) {
         this.duration = duration;
@@ -113,7 +113,7 @@ public class Song {
 
     /**
      * Representa el metodo setGenre.
-     * @return genre
+     * @return genero de la canción.
      */
     public String getGenre() {
         return genre;
@@ -121,7 +121,7 @@ public class Song {
 
     /**
      * Representa el metodo setGenre.
-     * @param genre
+     * @param genre de tipo String.
      */
     public void setGenre(String genre) {
         this.genre = genre;
@@ -129,7 +129,7 @@ public class Song {
 
     /**
      * Representa el metodo getCover
-     * @return cover
+     * @return caratula de la canción en tipo texto.
      */
     public String getCover() {
         return cover;
@@ -137,7 +137,7 @@ public class Song {
 
     /**
      * Representa el metodo cover.
-     * @param cover
+     * @param cover de tipo String.
      */
     public void setCover(String cover) {
         this.cover = cover;
@@ -145,7 +145,7 @@ public class Song {
 
     /**
      * Representa el metodo getDescription.
-     * @return description
+     * @return descripción de la canción.
      */
     public String getDescription() {
         return description;

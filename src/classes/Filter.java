@@ -17,9 +17,9 @@ public class Filter implements IFilter {
 
     /**
      * Hereda el metodo FilterYear de la interfaz IFilter.
-     * @param list
-     * @param year
-     * @return ArrayList del metodo FilterYear.
+     * @param list de tipo ArrayList.
+     * @param year de tipo int.
+     * @return un ArrayList del metodo FilterYear.
      */
     @Override
     public ArrayList<Song> FilterYear(ArrayList<Song> list, int year) {
@@ -37,8 +37,8 @@ public class Filter implements IFilter {
 
     /**
      * Hereda el metodo FilterGenre de la interfaz IFilter.
-     * @param list
-     * @param genre
+     * @param list de tipo ArrayList.
+     * @param genre de tipo String.
      * @return ArrayList del metodo FilterGenre
      */
     @Override
