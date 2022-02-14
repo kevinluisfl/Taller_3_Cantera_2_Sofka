@@ -1,11 +1,13 @@
-
+/**
+ * Se importa el paquete classes y la libreria ArrayList.
+ */
 package classes;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author kevinf
+ * Representa la clase Order con implementación de la interfaz IOrder.
+ * @author kevinf y Juan David.
  */
 public class Order implements IOrder  {
     /**
@@ -13,7 +15,16 @@ public class Order implements IOrder  {
      */
     ArrayList<Song> libraryOrder = new ArrayList<>();
 
+    /**
+     * Se hereda el siguiente metodo para ordenar la libreria de forma ascendente.
+     * @param list de tipo ArrayList.
+     * @param criterion de tipo String.
+     * @return la libreria ordenada de forma ascendente.
+     */
    @Override
+   /**
+    * Representa el caso de ordenamiento de forma ascendente con respecto a la duración,
+    */
     public ArrayList<Song> orderSongAsc(ArrayList<Song> list, String criterion) {
         libraryOrder = list;
         if(criterion.equals("duracion")){
@@ -27,6 +38,9 @@ public class Order implements IOrder  {
                     }
                 }
             }
+            /**
+             * Representa un caso contrario para ordenar por fecha y no por duración.
+             */
         }else {
             System.out.println("por fecha");
             for(int i = 0 ; i < libraryOrder.size(); i++){
@@ -42,6 +56,12 @@ public class Order implements IOrder  {
         return libraryOrder;
     }
 
+    /**
+     * Se hereda el siguiente metodo para ordenar la libreria de forma descendente.
+     * @param list de tipo ArrayList.
+     * @param criterion de tipo String.
+     * @return la libreria ordenada de forma descendente.
+     */
     @Override
     public ArrayList<Song> orderSongDesc(ArrayList<Song> list, String criterion) {
         libraryOrder = list;
@@ -56,6 +76,9 @@ public class Order implements IOrder  {
                     }
                 }
             }
+            /**
+             * Representa el caso contrario para ordenar la libreria por fecha y no por duración.
+             */
         }else {
             System.out.println("por fecha");
             for(int i = 0 ; i < libraryOrder.size(); i++){
@@ -70,7 +93,13 @@ public class Order implements IOrder  {
         }
         return libraryOrder;
     }
-    
+
+    /**
+     * Representa el metodo para reestablecer el orden de la libreria,
+     * ordenandola por medio del identificador.
+     * @param list de tipo ArrayList.
+     * @return la libreria ordenada de acuerdo al identicador.
+     */
     public ArrayList<Song> orderIdentifier(ArrayList<Song> list){
         libraryOrder = list;
         for(int i = 0 ; i < libraryOrder.size(); i++){
