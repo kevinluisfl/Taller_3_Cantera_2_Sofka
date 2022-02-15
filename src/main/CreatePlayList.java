@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 /**
  * Representa la clase CreatePlayList.
  *
- * el método main ess el punto de entrada para ejecutar el porgrama, la clase 
+ * el método main ess el punto de entrada para ejecutar el programa, la clase
  * principal desde donde se debe ejecutar Run File
  * 
  *
@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
 public class CreatePlayList {
 
     /**
-     * Representa el metodo principal para la ejecución del programa.
+     * Representa el método principal para la ejecución del programa.
      *
      * @param args the command line arguments
      */
@@ -55,7 +55,7 @@ public class CreatePlayList {
             ArrayList<PlayList> playlists = new ArrayList<>();
 
             /**
-             * Representa las canciones que estan precargadas.
+             * Representa las canciones que están precargadas.
              */
             Song s1 = new Song("Canción 1", 1, new Date(102, 3, 12), 180, "Rock", "cover1.png", "descripción 1");
             Song s2 = new Song("Canción 2", 2, new Date(85, 2, 21), 200, "Pop", "cover2.png", "descripción 2");
@@ -69,7 +69,7 @@ public class CreatePlayList {
             library.add(s5);
 
             /**
-             * Reresenta las playlist que etsan precargadas.
+             * Representa las playlist que están precargadas.
              */
             PlayList pL1 = new PlayList("Playlist 1");
             PlayList pL2 = new PlayList("Playlist 2");
@@ -119,12 +119,12 @@ public class CreatePlayList {
                         description = JOptionPane.showInputDialog("Descripción:");
 
                         /**
-                         * despues de capturada la información en variables, se
-                         * envian al constructor
+                         * después de capturada la información en variables, se
+                         * envían al constructor
                          */
                         Song s = new Song(title, identifier, new Date(year - 1900, month - 1, day), duration, genre, cover, description);
                         /**
-                         * despues de creada la canción se almacena en el
+                         * después de creada la canción se almacena en el
                          * arraylist library, el cual contiene todas las
                          * canciones
                          */
@@ -176,7 +176,7 @@ public class CreatePlayList {
 
                                 /**
                                  * para las opciones de canciones se hace uso
-                                 * solo del titulo
+                                 * solo del título
                                  */
                                 for (int i = 0; i < library.size(); i++) {
                                     optionsSong[i] = (i + 1) + "- " + library.get(i).getTitle();
@@ -187,12 +187,12 @@ public class CreatePlayList {
                                             namePlayList, JOptionPane.QUESTION_MESSAGE, null, optionsSong, optionsSong[0]);
                                     /**
                                      * Se divide el string por el identificador
-                                     * de cancion, se parsea a entero y se resta
-                                     * 1 para tener su indice
+                                     * de canción, se parsea a entero y se resta
+                                     * 1 para tener su índice
                                      */
                                     int indexSong = Integer.parseInt(songSelect.split("-")[0]) - 1;
                                     /**
-                                     * obteniendo el indice de la cancion es
+                                     * obteniendo el índice de la canción es
                                      * posible capturar el objeto completo y
                                      * almacenarlo en el arraylist songs
                                      */
@@ -214,7 +214,7 @@ public class CreatePlayList {
                                 pl.setSongs(songs);
                                 /**
                                  * se actualiza el arraylist de playlists con la
-                                 * recien creada
+                                 * recién creada
                                  */
                                 playlists.add(pl);
                                 System.out.println(playlists);
@@ -226,7 +226,7 @@ public class CreatePlayList {
                             case 2:
                                 ///mostrar playlists y select con las playlist creadas
                                 /**
-                                 * en el objeto optionsPlayList se almacenaran
+                                 * en el objeto optionsPlayList se almacenarán
                                  * como string los datos de playlist para usar
                                  * como opciones de selección
                                  */
@@ -287,7 +287,7 @@ public class CreatePlayList {
                     /**
                      * El caso 3 representa la opción de ver la biblioteca que
                      * se encuentra en el menu principal, a su vez lleva a un
-                     * submenú de la bilbioteca.
+                     * submenú de la biblioteca.
                      */
                     case 3:
                         ////////BIBLIOTECA//////////
@@ -313,7 +313,7 @@ public class CreatePlayList {
                         switch (selectionLibrary + 1) {
                             /**
                              * El caso 1 representa un submenú de "ordenar" que
-                             * permite ordenar la bilioteca.
+                             * permite ordenar la biblioteca.
                              */
                             case 1:
 
@@ -359,7 +359,7 @@ public class CreatePlayList {
                                      */
                                     case 3:
                                         libraryOrder = order.orderSongAsc(library, "duracion");
-                                        System.out.println("Libreria ordenada por duracion ascendente:\n");
+                                        System.out.println("Libreria ordenada por duración ascendente:\n");
                                         for (Song element : libraryOrder) {
                                             System.out.println(element);
                                         }
@@ -456,7 +456,7 @@ public class CreatePlayList {
                 }
             }
         }catch(Exception ex){
-            System.out.println("Excepcion: " + ex.getLocalizedMessage());
+            System.out.println("Excepción: " + ex.getLocalizedMessage());
             ex.printStackTrace();
         } 
     }

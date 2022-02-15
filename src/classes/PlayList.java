@@ -32,7 +32,7 @@ public class PlayList {
     private ArrayList<Song> songs = new ArrayList<>();
 
     /**
-     * Representa el metodo PlayList.
+     * Representa el método PlayList.
      *
      * @param namePlayList de tipo String.
      */
@@ -41,7 +41,7 @@ public class PlayList {
     }
 
     /**
-     * Representa el metodo getNamePlayList.
+     * Representa el método getNamePlayList.
      *
      * @return el nombre de la PlayList..
      */
@@ -50,7 +50,7 @@ public class PlayList {
     }
 
     /**
-     * Representa el metodo setNamePlayList.
+     * Representa el método setNamePlayList.
      *
      * @param namePlayList de tipo String
      */
@@ -59,7 +59,7 @@ public class PlayList {
     }
 
     /**
-     * Representa el metodo getSongs.
+     * Representa el método getSongs.
      *
      * @return las canciones.
      */
@@ -68,7 +68,7 @@ public class PlayList {
     }
 
     /**
-     * Representa el metodo setSongs.
+     * Representa el método setSongs.
      *
      * @param song de tipo ArrayList.
      */
