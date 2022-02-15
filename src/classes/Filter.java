@@ -36,12 +36,12 @@ public class Filter implements IFilter {
     SimpleDateFormat getYearFormat = new SimpleDateFormat("yyyy");
 
     /**
-     * Se implementa el siguiente metodo filterYear de la interfaz IFilter para
+     * Se implementa el siguiente método filterYear de la interfaz IFilter para
      * filtrar la libreria por año.
      *
      * @param list de tipo ArrayList.
      * @param year de tipo int.
-     * @return un ArrayList del metodo FilterYear.
+     * @return un ArrayList del método FilterYear.
      */
     @Override       
     public ArrayList<Song> filterYear(ArrayList<Song> list, int year) {
@@ -55,12 +55,12 @@ public class Filter implements IFilter {
     }
 
     /**
-     * Se implementa el siguiente metodo filterGenre de la interfaz IFilter para
+     * Se implementa el siguiente método filterGenre de la interfaz IFilter para
      * filtrar la libreria por género.
      *
      * @param list de tipo ArrayList.
      * @param genre de tipo String.
-     * @return ArrayList del metodo FilterGenre
+     * @return ArrayList del método FilterGenre
      */
     @Override
     public ArrayList<Song> filterGenre(ArrayList<Song> list, String genre) {

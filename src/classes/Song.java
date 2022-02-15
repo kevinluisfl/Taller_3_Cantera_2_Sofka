@@ -78,16 +78,16 @@ public class Song {
     }
 
     /**
-     * Representa el metodo getTitle.
+     * Representa el método getTitle.
      *
-     * @return titulo de la canción tipo String.
+     * @return título de la canción tipo String.
      */
     public String getTitle() {
         return title;
     }
 
     /**
-     * Representa el metodo setTitles.
+     * Representa el método setTitles.
      *
      * @param title de tipo String.
      */
@@ -96,7 +96,7 @@ public class Song {
     }
 
     /**
-     * Representa el metodo getIdentifier.
+     * Representa el método getIdentifier.
      *
      * @return identificador de la canción tipo int.
      */
@@ -105,7 +105,7 @@ public class Song {
     }
 
     /**
-     * Representa el metodo setIdentifier.
+     * Representa el método setIdentifier.
      *
      * @param identifier de tipo int.
      */
@@ -114,7 +114,7 @@ public class Song {
     }
 
     /**
-     * Rerpesenta el metodo getDate.
+     * Representa el método getDate.
      *
      * @return la fecha de la canción tipo Date.
      */
@@ -123,7 +123,7 @@ public class Song {
     }
 
     /**
-     * Representa el metodo setDate.
+     * Representa el método setDate.
      *
      * @param date de tipo Date.
      */
@@ -132,16 +132,16 @@ public class Song {
     }
 
     /**
-     * Representa el metodo getDuration.
+     * Representa el método getDuration.
      *
-     * @return duraciión de la canción tipo int.
+     * @return duración de la canción tipo int.
      */
     public int getDuration() {
         return duration;
     }
 
     /**
-     * Representa el metodo setDuration.
+     * Representa el método setDuration.
      *
      * @param duration de tipo int.
      */
@@ -150,16 +150,16 @@ public class Song {
     }
 
     /**
-     * Representa el metodo setGenre.
+     * Representa el método setGenre.
      *
-     * @return genero de la canción tipo String.
+     * @return género de la canción tipo String.
      */
     public String getGenre() {
         return genre;
     }
 
     /**
-     * Representa el metodo setGenre.
+     * Representa el método setGenre.
      *
      * @param genre de tipo String.
      */
@@ -168,7 +168,7 @@ public class Song {
     }
 
     /**
-     * Representa el metodo getCover
+     * Representa el método getCover
      *
      * @return url caratula de la canción tipo String.
      */
@@ -177,7 +177,7 @@ public class Song {
     }
 
     /**
-     * Representa el metodo cover.
+     * Representa el método cover.
      *
      * @param cover de tipo String.
      */
@@ -186,7 +186,7 @@ public class Song {
     }
 
     /**
-     * Representa el metodo getDescription.
+     * Representa el método getDescription.
      *
      * @return descripción de la canción tipo String.
      */
@@ -195,7 +195,7 @@ public class Song {
     }
 
     /**
-     * Representa el metodo setDescription.
+     * Representa el método setDescription.
      *
      * @param description parametro tipo String
      */
@@ -204,7 +204,7 @@ public class Song {
     }
 
     /**
-     * Representa el metodo getMillis. este método se usa para comparar dos
+     * Representa el método getMillis. este método se usa para comparar dos
      * fechas, obteniendo el tiempo transcurrido en milisegundos
      *
      * @return valor de this.date en milisegundos tipo long

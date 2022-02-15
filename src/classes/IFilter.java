@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Representa la interfaz IFilter.
  *
- * contiene los métodos abstractos que necesiten distintos comportamientos de
+ * Contiene los métodos abstractos que necesiten distintos comportamientos de
  * filtrado
  *
  * @version 1.00.000 2022-02-14, La clase corresponde a la versión 1 del
