@@ -455,6 +455,8 @@ public class CreatePlayList {
                         limit = true;
                 }
             }
+        }catch(NumberFormatException | NullPointerException npe){
+            System.out.println(npe.getMessage());
         }catch(Exception ex){
             System.out.println("Excepción: " + ex.getLocalizedMessage());
             ex.printStackTrace();
