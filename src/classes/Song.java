@@ -178,7 +178,7 @@ public class Song {
     }
 
     /**
-     * Hereda atributos de la clase Song.
+     * toString para visualizar la información de cada instancia
      * @return title, identifier, date, duration, genre, cover, description
      */
     @Override
@@ -189,7 +189,7 @@ public class Song {
                 ", Duración=" + getDuration() +
                 ", Genero='" + getGenre() + '\'' +
                 ", Caratula='" + getCover() + '\'' +
-                ", Descripción='" + getDescription();
+                ", Descripción='" + getDescription()+"\n";
     }
 
 }
