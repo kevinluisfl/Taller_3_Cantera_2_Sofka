@@ -83,7 +83,7 @@ public class CreatePlayList {
                      */
                     case 1:
 
-                        ////////ATRIBUTOS DE CANCION
+                        ////////ATRIBUTOS DE CANCION///////////
                         title = JOptionPane.showInputDialog("Nombre de la canción:");
                         identifier = library.size()+1;
                         year = Integer.parseInt(JOptionPane.showInputDialog("Año canción:"));
@@ -109,6 +109,7 @@ public class CreatePlayList {
                      */
                     case 2:
                         /////////////PLAYLIST/////////////////
+                        System.out.println(playlists);
                         int selectionPlayList = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "PlayList",
                                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                                 new Object[]{"Crear PlayList", "Ver PlayList", "Atras"}, "opcion 1");
@@ -178,7 +179,7 @@ public class CreatePlayList {
                                     System.out.println("Titulo: " + so.getTitle() + " -Genero: " + so.getGenre());
                                 });
                                 
-                                /////////////////////////////////////////////////////////////////////
+                                //////////////////////////////AGREGA CANCION A PLAYLIST EXISTENTE///////////////////////////////////////
                                 
                                 int response =  JOptionPane.showConfirmDialog(null, "Agregar otra canción a "+playListSelected.getNamePlayList()+"?", playListSelected.getNamePlayList(), 
                                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
@@ -206,9 +207,7 @@ public class CreatePlayList {
                                     }while(anotherSong);
                                     playListSelected.setSongs(songsPlayList);
                                 }
-                                
-                                /////////////////////////////////////////////////////////////////////
-                                
+                         
                             break;
                             default:
                                 System.out.println("default Fin switch playlist");
@@ -220,6 +219,7 @@ public class CreatePlayList {
                      * a su vez lleva a un submenú de la bilbioteca.
                      */
                     case 3:
+                        ////////BIBLIOTECA//////////
                         System.out.println(library);
                         int selectionLibrary = JOptionPane.showOptionDialog(null, "¿Que deseas hacer?", "Biblioteca",
                                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,

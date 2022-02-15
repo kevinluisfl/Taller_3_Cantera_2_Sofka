@@ -55,5 +55,14 @@ public class PlayList {
     public void setSongs(ArrayList<Song> song) {
         this.songs = song;
     }
+
+    /**
+     * toString para visualizar la información de cada instancia
+     * @return namePlayList, songs
+     */
+    @Override
+    public String toString() {
+        return "PlayList{" + "namePlayList=" + namePlayList + ", songs=" + songs + '}'+"\n";
+    }
  
 }
