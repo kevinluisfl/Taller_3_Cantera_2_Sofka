@@ -7,31 +7,47 @@ import java.util.ArrayList;
 
 /**
  * Representa la clase Order con implementación de la interfaz IOrder.
- * @author kevinf y Juan David.
+ *
+ * esta clase contiene los métodos implementados para ordenar las canciones ej.:
+ *
+ * Order order = new Order(); order.orderSongAsc(list, criterion);
+ *
+ * list es el array a ordenar, criterion es el valor que define por cual
+ * atributo se va ordenar
+ *
+ * @version 1.00.000 2022-02-14, La clase corresponde a la versión 1 del
+ * sistema, la misma no a sufrido refactorings durante la versión no se
+ * realizaron cambios menores el último cambio fue realizado el 14 de febrero de
+ * 2022
+ *
+ * @author Kevin Luis Flórez y Juan David Restrepo
+ *
+ * @since 1.00.000
+ *
  */
-public class Order implements IOrder  {
+public class Order implements IOrder {
+
     /**
-     * creé este array para no modificar el listado original, pero igual lo modifica y no entiendo porqué
+     * el arraylist libraryOrder almacena el arraylist ordenado
      */
     ArrayList<Song> libraryOrder = new ArrayList<>();
 
     /**
-     * Se hereda el siguiente metodo para ordenar la libreria de forma ascendente.
+     * Se implementa el siguiente metodo orderSongAsc de la interfaz IOrder para
+     * ordenar la libreria por duración o fecha de forma ascendente.
+     *
      * @param list de tipo ArrayList.
      * @param criterion de tipo String.
      * @return la libreria ordenada de forma ascendente.
      */
-   @Override
-   /**
-    * Representa el caso de ordenamiento de forma ascendente con respecto a la duración,
-    */
+    @Override
     public ArrayList<Song> orderSongAsc(ArrayList<Song> list, String criterion) {
         libraryOrder = list;
-        if(criterion.equals("duracion")){
+        if (criterion.equals("duracion")) {
             System.out.println("por duracion");
-            for(int i = 0 ; i < libraryOrder.size(); i++){
-                for(int j = 0; j < libraryOrder.size(); j++){
-                    if(libraryOrder.get(i).getDuration() < libraryOrder.get(j).getDuration()){
+            for (int i = 0; i < libraryOrder.size(); i++) {
+                for (int j = 0; j < libraryOrder.size(); j++) {
+                    if (libraryOrder.get(i).getDuration() < libraryOrder.get(j).getDuration()) {
                         Song aux = libraryOrder.get(i);
                         libraryOrder.set(i, libraryOrder.get(j));
                         libraryOrder.set(j, aux);
@@ -39,13 +55,14 @@ public class Order implements IOrder  {
                 }
             }
             /**
-             * Representa un caso contrario para ordenar por fecha y no por duración.
+             * Representa el caso para ordenar por fecha y no por
+             * duración.
              */
-        }else {
+        } else {
             System.out.println("por fecha");
-            for(int i = 0 ; i < libraryOrder.size(); i++){
-                for(int j = 0; j < libraryOrder.size(); j++){
-                    if(libraryOrder.get(i).getMillis() < libraryOrder.get(j).getMillis()){
+            for (int i = 0; i < libraryOrder.size(); i++) {
+                for (int j = 0; j < libraryOrder.size(); j++) {
+                    if (libraryOrder.get(i).getMillis() < libraryOrder.get(j).getMillis()) {
                         Song aux = libraryOrder.get(i);
                         libraryOrder.set(i, libraryOrder.get(j));
                         libraryOrder.set(j, aux);
@@ -57,7 +74,9 @@ public class Order implements IOrder  {
     }
 
     /**
-     * Se hereda el siguiente metodo para ordenar la libreria de forma descendente.
+     * Se implementa el siguiente metodo orderSongDesc de la interfaz IOrder
+     * para ordenar la libreria por duración o fecha de forma descendente.
+     *
      * @param list de tipo ArrayList.
      * @param criterion de tipo String.
      * @return la libreria ordenada de forma descendente.
@@ -65,11 +84,11 @@ public class Order implements IOrder  {
     @Override
     public ArrayList<Song> orderSongDesc(ArrayList<Song> list, String criterion) {
         libraryOrder = list;
-        if(criterion.equals("duracion")){
+        if (criterion.equals("duracion")) {
             System.out.println("por duracion");
-            for(int i = 0 ; i < libraryOrder.size(); i++){
-                for(int j = 0; j < libraryOrder.size(); j++){
-                    if(libraryOrder.get(i).getDuration() > libraryOrder.get(j).getDuration()){
+            for (int i = 0; i < libraryOrder.size(); i++) {
+                for (int j = 0; j < libraryOrder.size(); j++) {
+                    if (libraryOrder.get(i).getDuration() > libraryOrder.get(j).getDuration()) {
                         Song aux = libraryOrder.get(i);
                         libraryOrder.set(i, libraryOrder.get(j));
                         libraryOrder.set(j, aux);
@@ -77,13 +96,14 @@ public class Order implements IOrder  {
                 }
             }
             /**
-             * Representa el caso contrario para ordenar la libreria por fecha y no por duración.
+             * Representa el caso para ordenar la libreria por fecha y
+             * no por duración.
              */
-        }else {
+        } else {
             System.out.println("por fecha");
-            for(int i = 0 ; i < libraryOrder.size(); i++){
-                for(int j = 0; j < libraryOrder.size(); j++){
-                    if(libraryOrder.get(i).getMillis() > libraryOrder.get(j).getMillis()){
+            for (int i = 0; i < libraryOrder.size(); i++) {
+                for (int j = 0; j < libraryOrder.size(); j++) {
+                    if (libraryOrder.get(i).getMillis() > libraryOrder.get(j).getMillis()) {
                         Song aux = libraryOrder.get(i);
                         libraryOrder.set(i, libraryOrder.get(j));
                         libraryOrder.set(j, aux);
@@ -97,20 +117,21 @@ public class Order implements IOrder  {
     /**
      * Representa el metodo para reestablecer el orden de la libreria,
      * ordenandola por medio del identificador.
+     *
      * @param list de tipo ArrayList.
      * @return la libreria ordenada de acuerdo al identicador.
      */
-    public ArrayList<Song> orderIdentifier(ArrayList<Song> list){
+    public ArrayList<Song> orderIdentifier(ArrayList<Song> list) {
         libraryOrder = list;
-        for(int i = 0 ; i < libraryOrder.size(); i++){
-                for(int j = 0; j < libraryOrder.size(); j++){
-                    if(libraryOrder.get(i).getIdentifier() < libraryOrder.get(j).getIdentifier()){
-                        Song aux = libraryOrder.get(i);
-                        libraryOrder.set(i, libraryOrder.get(j));
-                        libraryOrder.set(j, aux);
-                    }
+        for (int i = 0; i < libraryOrder.size(); i++) {
+            for (int j = 0; j < libraryOrder.size(); j++) {
+                if (libraryOrder.get(i).getIdentifier() < libraryOrder.get(j).getIdentifier()) {
+                    Song aux = libraryOrder.get(i);
+                    libraryOrder.set(i, libraryOrder.get(j));
+                    libraryOrder.set(j, aux);
                 }
             }
+        }
         return libraryOrder;
     }
 }

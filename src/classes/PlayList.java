@@ -7,9 +7,24 @@ import java.util.ArrayList;
 
 /**
  * Representa la clase PlayList.
- * @authores Kevin y Juan David.
+ *
+ * esta clase contiene las caracteristicas de creación de las playlist ej.:
+ *
+ * PlayList playlist = new PlayList(namePlayList); 
+ * playlist.setSongs(song);
+ *
+ * @version 1.00.000 2022-02-14, La clase corresponde a la versión 1 del
+ * sistema, la misma no a sufrido refactorings durante la versión no se
+ * realizaron cambios menores el último cambio fue realizado el 14 de febrero de
+ * 2022
+ *
+ * @author Kevin Luis Flórez y Juan David Restrepo
+ *
+ * @since 1.00.000
+ *
  */
 public class PlayList {
+
     /**
      * Representa los atributos de la clase PlayList.
      */
@@ -18,6 +33,7 @@ public class PlayList {
 
     /**
      * Representa el metodo PlayList.
+     *
      * @param namePlayList de tipo String.
      */
     public PlayList(String namePlayList) {
@@ -26,6 +42,7 @@ public class PlayList {
 
     /**
      * Representa el metodo getNamePlayList.
+     *
      * @return el nombre de la PlayList..
      */
     public String getNamePlayList() {
@@ -34,6 +51,7 @@ public class PlayList {
 
     /**
      * Representa el metodo setNamePlayList.
+     *
      * @param namePlayList de tipo String
      */
     public void setNamePlayList(String namePlayList) {
@@ -42,6 +60,7 @@ public class PlayList {
 
     /**
      * Representa el metodo getSongs.
+     *
      * @return las canciones.
      */
     public ArrayList<Song> getSongs() {
@@ -50,6 +69,7 @@ public class PlayList {
 
     /**
      * Representa el metodo setSongs.
+     *
      * @param song de tipo ArrayList.
      */
     public void setSongs(ArrayList<Song> song) {
@@ -58,11 +78,13 @@ public class PlayList {
 
     /**
      * toString para visualizar la información de cada instancia
+     *
      * @return namePlayList, songs
      */
     @Override
     public String toString() {
-        return "PlayList{" + "namePlayList=" + namePlayList + ", songs=" + songs + '}'+"\n";
+        return "PlayList{" + "namePlayList=" + this.getNamePlayList() 
+                + ", songs=" + this.getSongs() + '}' + "\n";
     }
- 
+
 }

@@ -1,5 +1,5 @@
 /**
- * Se importa el paquete y librerias a usar.
+ * Se importa el paquete y librerias SimpleDateFormat, ArrayList.
  */
 package classes;
 
@@ -8,26 +8,45 @@ import java.util.ArrayList;
 
 /**
  * Representa la clase Filter con implementación de la interfaz IFilter.
- * @authores kevin y Juan David.
+ *
+ * esta clase contiene los métodos implementados para filtrar las canciones ej.:
+ *
+ * Filter filter = new Filter(); filter.filterYear(list, year);
+ *
+ * list es el array a filtrar, year es el valor que define por cual
+ * atributo se va filtrar, en este caso el año.
+ *
+ * @version 1.00.000 2022-02-14, La clase corresponde a la versión 1 del
+ * sistema, la misma no a sufrido refactorings durante la versión no se
+ * realizaron cambios menores el último cambio fue realizado el 14 de febrero de
+ * 2022
+ *
+ * @author Kevin Luis Flórez y Juan David Restrepo
+ *
+ * @since 1.00.000
+ *
  */
 public class Filter implements IFilter {
+
+    /**
+     * el arraylist libraryFilter almacena el arraylist filtrado
+     */
     ArrayList<Song> libraryFilter = new ArrayList<>();
-    
+
     SimpleDateFormat getYearFormat = new SimpleDateFormat("yyyy");
 
     /**
-     * Hereda el metodo FilterYear de la interfaz IFilter.
+     * Se implementa el siguiente metodo filterYear de la interfaz IFilter para
+     * filtrar la libreria por año.
+     *
      * @param list de tipo ArrayList.
      * @param year de tipo int.
      * @return un ArrayList del metodo FilterYear.
      */
-    @Override
-    public ArrayList<Song> FilterYear(ArrayList<Song> list, int year) {
-/**
- * Representa un metodo para filtrar las canciones por año.
- */
-        for (Song item: list) {
-            int yearSong = Integer.parseInt (getYearFormat.format(item.getDate()));
+    @Override       
+    public ArrayList<Song> filterYear(ArrayList<Song> list, int year) {
+        for (Song item : list) {
+            int yearSong = Integer.parseInt(getYearFormat.format(item.getDate()));
             if (yearSong == year) {
                 libraryFilter.add(item);
             }
@@ -36,17 +55,16 @@ public class Filter implements IFilter {
     }
 
     /**
-     * Hereda el metodo FilterGenre de la interfaz IFilter.
+     * Se implementa el siguiente metodo filterGenre de la interfaz IFilter para
+     * filtrar la libreria por género.
+     *
      * @param list de tipo ArrayList.
      * @param genre de tipo String.
      * @return ArrayList del metodo FilterGenre
      */
     @Override
-    public ArrayList<Song> FilterGenre(ArrayList<Song> list, String genre) {
-/**
- * Representa el metodo para filtrar canciones por genero.
- */
-        for (Song item: list) {
+    public ArrayList<Song> filterGenre(ArrayList<Song> list, String genre) {
+        for (Song item : list) {
             if (item.getGenre() == genre) {
                 libraryFilter.add(item);
             }
