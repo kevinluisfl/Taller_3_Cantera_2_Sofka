@@ -10,8 +10,8 @@
 > + Previamente instalado el JDK 11
 
 ### Integrantes
-- Kevin Luis Florez - [kevinluisfl](https://github.com/kevinluisfl)
-- Juan David Rojas - [juandavidrpo](https://github.com/juandavidrpo)
+- Kevin Luis Florez Lozada - [kevinluisfl](https://github.com/kevinluisfl)
+- Juan David Rojas Restrepo - [juandavidrpo](https://github.com/juandavidrpo)
 
 ### Información taller
 
