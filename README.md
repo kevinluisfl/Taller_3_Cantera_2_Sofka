@@ -28,6 +28,8 @@ En pareja diseñar una aplicación que administre una lista de canciones, se deb
 - Se debe crear comportamientos en donde se permita hacer filtros a la biblioteca principal, los filtros son:
 
 >	 `Filtrar canciones del mismo género`
+
+
 >	 `Filtrar canciones en el mismo año`
 
 
