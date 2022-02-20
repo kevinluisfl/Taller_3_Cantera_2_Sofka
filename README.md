@@ -35,8 +35,10 @@ En pareja diseñar una aplicación que administre una lista de canciones, se deb
 
 
 - Se debe crear comportamientos en donde se permita: 
->	`ordenar por duración`  
->	`ordenar por fecha`
+>	`Ordenar por duración`  
+
+
+>	`Ordenar por fecha`
 
 ### Desarrollo
 
