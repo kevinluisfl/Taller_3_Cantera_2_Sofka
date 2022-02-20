@@ -27,12 +27,14 @@ En pareja diseñar una aplicación que administre una lista de canciones, se deb
 
 - Se debe crear comportamientos en donde se permita hacer filtros a la biblioteca principal, los filtros son:
 
->	 Filtrar canciones del mismo género 
->	 Filtrar canciones en el mismo año
+>	 `Filtrar canciones del mismo género `
+>	 `Filtrar canciones en el mismo año`
 
 
 
-- Se debe crear comportamientos en donde se permita ordenar duración y fecha.
+- Se debe crear comportamientos en donde se permita: 
+>	`ordenar por duración`  
+>	`ordenar por fecha`
 
 ### Desarrollo
 
