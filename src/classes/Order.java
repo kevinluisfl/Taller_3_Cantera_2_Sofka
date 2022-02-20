@@ -15,9 +15,10 @@ import java.util.ArrayList;
  * list es el array a ordenar, criterion es el valor que define por cuál
  * atributo se va a ordenar
  *
- * @version 1.00.000 2022-02-14, La clase corresponde a la versión 1 del
- * sistema, la misma no a sufrido refactorings durante la versión no se
- * realizaron cambios menores el último cambio fue realizado el 14 de febrero de
+ * @version 1.00.001 2022-02-14, La clase corresponde a la versión 1 del
+ * sistema, la misma no a sufrido refactorings durante la versión, 
+ * se cambio la palabra duracion en la validacion por la tilde que no debia ir
+ * el último cambio fue realizado el 20 de febrero de
  * 2022
  *
  * @author Kevin Luis Flórez y Juan David Restrepo
@@ -43,7 +44,7 @@ public class Order implements IOrder {
     @Override
     public ArrayList<Song> orderSongAsc(ArrayList<Song> list, String criterion) {
         libraryOrder = list;
-        if (criterion.equals("duración")) {
+        if (criterion.equals("duracion")) {
             System.out.println("por duración");
             for (int i = 0; i < libraryOrder.size(); i++) {
                 for (int j = 0; j < libraryOrder.size(); j++) {
@@ -84,7 +85,7 @@ public class Order implements IOrder {
     @Override
     public ArrayList<Song> orderSongDesc(ArrayList<Song> list, String criterion) {
         libraryOrder = list;
-        if (criterion.equals("duración")) {
+        if (criterion.equals("duracion")) {
             System.out.println("por duración");
             for (int i = 0; i < libraryOrder.size(); i++) {
                 for (int j = 0; j < libraryOrder.size(); j++) {
