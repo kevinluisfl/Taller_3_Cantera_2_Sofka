@@ -455,7 +455,7 @@ public class CreatePlayList {
                         limit = true;
                 }
             }
-        }catch(Exception ex){
+        }catch(NumberFormatException  ex){
             System.out.println("Excepción: " + ex.getLocalizedMessage());
             ex.printStackTrace();
         } 
